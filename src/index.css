@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --fv-black: #080B12;
+    --fv-blue: #356DFF;
+    --fv-white: #FFFFFF;
+    --fv-yellow: #FFC928;
+    --fv-red: #F04452;
+    --fv-green: #22C55E;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  body {
+    background-color: #080B12;
+    color: #FFFFFF;
+    letter-spacing: 0.01em;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: 'Syne', sans-serif;
+    text-wrap: balance;
+  }
+
+  .font-mono, .tabular-nums {
+    font-family: 'JetBrains Mono', monospace;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes facevid-cinematic-pulse {
+  0% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 10px rgba(53, 109, 255, 0.75)) drop-shadow(0 0 22px rgba(53, 109, 255, 0.45)) drop-shadow(0 0 45px rgba(53, 109, 255, 0.20));
+  }
+  20% {
+    transform: scale(1.06);
+    filter: drop-shadow(0 0 18px rgba(53, 109, 255, 1.0)) drop-shadow(0 0 38px rgba(53, 109, 255, 0.85)) drop-shadow(0 0 70px rgba(53, 109, 255, 0.55));
+  }
+  40% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 10px rgba(53, 109, 255, 0.75)) drop-shadow(0 0 22px rgba(53, 109, 255, 0.45)) drop-shadow(0 0 45px rgba(53, 109, 255, 0.20));
+  }
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 10px rgba(53, 109, 255, 0.75)) drop-shadow(0 0 22px rgba(53, 109, 255, 0.45)) drop-shadow(0 0 45px rgba(53, 109, 255, 0.20));
+  }
+}
+
+.facevid-cinematic-pulse {
+  animation: facevid-cinematic-pulse 5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  transform-origin: center center;
+  will-change: transform, filter;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
+

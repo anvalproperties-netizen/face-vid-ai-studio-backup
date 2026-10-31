@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleIdentifier</key>
+    <string>com.facevid.app</string>
+    <key>CFBundleName</key>
+    <string>FACE VID</string>
+    <key>NSCameraUsageDescription</key>
+    <string>FACE VID requires camera access for video recording and live broadcasting.</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>FACE VID requires microphone access for audio recording and voice calls.</string>
+    <key>FaceVidMasterLogoAsset</key>
+    <string>assets/owner/face-vid-official-logo.png</string>
+</dict>
+</plist>

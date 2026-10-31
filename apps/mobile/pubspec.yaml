@@ -1,0 +1,17 @@
+name: face_vid_mobile
+description: "FACE VID — Shared Flutter Client (Android, iOS/iPadOS, Windows Desktop)"
+publish_to: "none"
+version: 0.1.0+1
+
+environment:
+  sdk: ">=3.2.0 <4.0.0"
+  flutter: ">=3.16.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/owner/face-vid-official-logo.png

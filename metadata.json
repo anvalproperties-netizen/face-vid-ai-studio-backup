@@ -1,0 +1,6 @@
+{
+  "name": "FACE VID — Phase 1A Architecture & Foundation",
+  "description": "Production foundation, modular monorepo architecture, public web shell, isolated admin shell, versioned backend API, and Phase 1A security & audit suite for FACE VID.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

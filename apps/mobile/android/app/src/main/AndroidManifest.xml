@@ -1,0 +1,14 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.facevid.app">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <application
+        android:label="FACE VID"
+        android:usesCleartextTraffic="false"
+        android:icon="@mipmap/ic_launcher_face_vid_official">
+        <meta-data
+            android:name="com.facevid.master_logo_asset"
+            android:value="assets/owner/face-vid-official-logo.png" />
+    </application>
+</manifest>

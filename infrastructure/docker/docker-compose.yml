@@ -1,0 +1,58 @@
+version: '3.9'
+
+# ==============================================================================
+# FACE VID — PHASE 1A LOCAL DEVELOPMENT INFRASTRUCTURE
+# ==============================================================================
+# SECURITY NOTICE:
+# - Binds strictly to 127.0.0.1 (localhost) to prevent LAN/WAN exposure.
+# - Uses environment variable interpolation with safe local-dev-only defaults.
+# - Never use this compose file or local defaults in production environments.
+
+services:
+  postgres:
+    image: postgres:16.4-alpine
+    container_name: facevid-postgres-dev
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-facevid_dev}
+      POSTGRES_USER: ${POSTGRES_USER:-facevid_local_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD must be set in .env.local}
+    ports:
+      - '127.0.0.1:${POSTGRES_PORT:-5432}:5432'
+    volumes:
+      - facevid_pgdata:/var/lib/postgresql/data
+      - ../database/init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+    healthcheck:
+      test:
+        [
+          'CMD-SHELL',
+          'pg_isready -U $${POSTGRES_USER:-facevid_local_user} -d $${POSTGRES_DB:-facevid_dev}',
+        ]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
+    security_opt:
+      - no-new-privileges:true
+
+  redis:
+    image: redis:7.4-alpine
+    container_name: facevid-redis-dev
+    restart: unless-stopped
+    command: ['redis-server', '--appendonly', 'yes', '--save', '60', '1']
+    ports:
+      - '127.0.0.1:${REDIS_PORT:-6379}:6379'
+    volumes:
+      - facevid_redisdata:/data
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 3s
+    security_opt:
+      - no-new-privileges:true
+
+volumes:
+  facevid_pgdata:
+  facevid_redisdata:
